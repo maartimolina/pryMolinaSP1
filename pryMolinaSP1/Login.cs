@@ -16,5 +16,10 @@ namespace pryMolinaSP1
         {
             InitializeComponent();
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,5 +16,16 @@ namespace pryMolinaSP1
         {
             InitializeComponent();
         }
+
+        private void frmBienvenida_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmdIngresar_Click(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
+        }
     }
 }
