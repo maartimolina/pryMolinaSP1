@@ -12,7 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace pryMolinaSP1
 {
     public partial class frmLogin : Form
-    {
+    {   //declaracion de variables globales
+        string varModulo, varContraseña,varUsuario;
+        bool varAcceso=false;
         public frmLogin()
         {
             InitializeComponent();
@@ -45,6 +47,25 @@ namespace pryMolinaSP1
 
         }
 
+        private void cmdCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void cmdAceptar_Click(object sender, EventArgs e)
+        {
+            varModulo= cboModulo.Text;
+            varContraseña = txtContraseña.Text; 
+            varUsuario= txtUsuario.Text;
+            varAcceso = false;
+            if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "@1a")
+                if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "")
+                    if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "") ;
+        }
+
+        private int loginAttempts = 0; // Contador de intentos de inicio incorrectos
+        
+        
+        
     }
 }

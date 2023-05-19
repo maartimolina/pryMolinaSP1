@@ -98,10 +98,10 @@
             this.cboModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboModulo.FormattingEnabled = true;
             this.cboModulo.Items.AddRange(new object[] {
-            "ADM(Administración)",
-            "SIST (Sistemas)",
-            "COM (Compras)",
-            "VTA (Ventas)"});
+            "ADM",
+            "SIST ",
+            "COM ",
+            "VTA"});
             this.cboModulo.Location = new System.Drawing.Point(211, 172);
             this.cboModulo.Margin = new System.Windows.Forms.Padding(4);
             this.cboModulo.Name = "cboModulo";
@@ -119,6 +119,7 @@
             this.cmdAceptar.TabIndex = 6;
             this.cmdAceptar.Text = "Aceptar";
             this.cmdAceptar.UseVisualStyleBackColor = false;
+            this.cmdAceptar.Click += new System.EventHandler(this.cmdAceptar_Click);
             // 
             // cmdCancelar
             // 
@@ -131,6 +132,7 @@
             this.cmdCancelar.TabIndex = 7;
             this.cmdCancelar.Text = "Cancelar";
             this.cmdCancelar.UseVisualStyleBackColor = false;
+            this.cmdCancelar.Click += new System.EventHandler(this.cmdCancelar_Click);
             // 
             // frmLogin
             // 
