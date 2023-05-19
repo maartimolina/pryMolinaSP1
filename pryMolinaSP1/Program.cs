@@ -16,7 +16,7 @@ namespace pryMolinaSP1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBienvenida());
+            Application.Run(new frmLogin());
         }
     }
 }

@@ -22,12 +22,6 @@ namespace pryMolinaSP1
            
         }
 
-        private void cmdIngresar_Click(object sender, EventArgs e)
-        {
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 

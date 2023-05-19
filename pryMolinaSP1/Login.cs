@@ -13,8 +13,8 @@ namespace pryMolinaSP1
 {
     public partial class frmLogin : Form
     {   //declaracion de variables globales
-        string varModulo, varContraseña,varUsuario;
-        bool varAcceso=false;
+        string varModulo, varContraseña, varUsuario;
+        int varErrores;
         public frmLogin()
         {
             InitializeComponent();
@@ -22,12 +22,12 @@ namespace pryMolinaSP1
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            varErrores = 0;
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
-            if(txtUsuario.Text.Length >=10) 
+            if (txtUsuario.Text.Length >= 10)
             {
                 txtUsuario.Text = txtUsuario.Text.Substring(0, 10);
                 txtUsuario.SelectionStart = 10;
@@ -40,10 +40,10 @@ namespace pryMolinaSP1
             {
                 txtContraseña.Text = txtContraseña.Text.Substring(0, 10);
                 txtContraseña.SelectionStart = 10;
-         
-      
+
+
             }
-            txtContraseña.Text = new string('#', txtContraseña.Text.Length);
+          //  txtContraseña.Text = new string('#', txtContraseña.Text.Length);
 
         }
 
@@ -54,18 +54,72 @@ namespace pryMolinaSP1
 
         private void cmdAceptar_Click(object sender, EventArgs e)
         {
-            varModulo= cboModulo.Text;
-            varContraseña = txtContraseña.Text; 
-            varUsuario= txtUsuario.Text;
-            varAcceso = false;
-            if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "@1a")
-                if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "")
-                    if (varModulo == "ADM" && varUsuario == "Adm" && varContraseña == "") ;
-        }
+            varModulo = cboModulo.Text;
+            varContraseña = txtContraseña.Text;
+            varUsuario = txtUsuario.Text;
+            
 
-        private int loginAttempts = 0; // Contador de intentos de inicio incorrectos
-        
-        
-        
+            if (varUsuario == "Adm")
+            {
+                if (varContraseña == "@1a" && (varModulo == "ADM" || varModulo == "COM" || varModulo == "VTA"))
+                {
+                    frmBienvenida ventaBienvenida = new frmBienvenida();
+                    ventaBienvenida.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Contraseña y/o modulo incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    varErrores++;
+
+                }
+            }
+            if (varUsuario == "John")
+            {
+                if (varContraseña == "*2b" && (varModulo == "SIST"))
+                {
+                    frmBienvenida ventaBienvenida = new frmBienvenida();
+                    ventaBienvenida.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    varErrores++;
+                    MessageBox.Show("Contraseña y/o modulo incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (varUsuario == "Ceci")
+            {
+                if (varContraseña == "*@3c" && (varModulo == "ADM" || varModulo == "VTA"))
+                {
+                    frmBienvenida ventaBienvenida = new frmBienvenida();
+                    ventaBienvenida.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    varErrores++;
+                    MessageBox.Show("Contraseña y/o modulo incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            if (varUsuario == "God")
+                if (varContraseña == "*@#4d" && (varModulo == "SIST" || varModulo == "ADM" || varModulo == "COM" || varModulo == "VTA"))
+                {
+                    frmBienvenida ventaBienvenida = new frmBienvenida();
+                    ventaBienvenida.ShowDialog();
+                    this.Hide();
+                }
+                else
+                {
+                    varErrores++;
+                    MessageBox.Show("Contraseña y/o modulo incorrecto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            if (varErrores==2)
+            {
+                MessageBox.Show("Demasiados intentos, se cerrará el Inicio de Sesion");
+                this.Close();
+            }
+        }
     }
 }
+
